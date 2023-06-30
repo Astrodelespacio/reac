@@ -1,0 +1,30 @@
+import React, {useState, Fragment} from "react";
+
+
+// Cambiar valor al hacer clic en el boton que agregaremos, en lugar de cuando hace el cambio el input.
+
+const CambiarValor = () =>{
+
+    const [InputText, setInputText] = useState ("");
+    
+    const [ValorAMostrar, setValorAMostrar] = useState ("Digita un color");
+
+    
+
+    return(
+
+        <Fragment>
+
+            <input type="text" onChange={ e=> setInputText(e.target.value) } />
+            <button onClick={ () => setValorAMostrar (InputText.trim().length != 0 && ValorAMostrar ? InputText : "Ingrese un valor")}> Cambiar Valor</button>
+            <br></br><br></br>
+            {/* {(ValorAMostrar.trim().length != 0) && (
+            <div> {ValorAMostrar} </div>
+            )} */}
+            <div> {ValorAMostrar} </div>
+
+        </Fragment>
+    )
+}
+
+export default CambiarValor
