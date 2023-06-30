@@ -1,0 +1,53 @@
+import React from "react";
+import "./Formulario.css"
+import CampoTexto from "../CampoTexto/CampoTexto";
+import ListaOpciones from "../ListaOpciones/ListaOpciones";
+import Boton from "../Boton/Boton";
+
+
+const Formulario = () => {
+    const manejarEnvio = (evento) =>{
+        evento.preventDefault()
+        console.log("Manejar el envío", evento)
+    } // Este función no permite que se cargue la pagina web cuando se le da clic a la opción crear del boton que agregaremos a nuestro formulario
+
+    return(
+
+        <section className="formulario">
+            <form onSubmit={manejarEnvio}>
+                <h2>Rellena el formulario para crear un nuevo participante</h2>
+                <CampoTexto titulo="Nombre" placeholder="Ingrese sus Nombres" />
+                <CampoTexto titulo="Apellido" placeholder="Ingrese sus Apellidos" />
+                <CampoTexto titulo="Puesto" placeholder="Ingrese su Puesto" />
+                <CampoTexto titulo="Foto" placeholder="Ingrese el enlace de la Foto" />
+                <ListaOpciones />
+
+                <div className="botonIzquierda"> <Boton texto="Crear" /> </div>
+            </form>
+        </section>
+
+    )
+}
+export default Formulario;
+
+
+CSS
+.formulario{
+    display: flex;
+    justify-content: center;
+    margin: 80px 0;
+}
+
+.formulario form{
+    max-width: 80%;
+    background-color:beige;
+    box-shadow: 7px 7px 15px rgba(0, 0, 0, 25%);
+    border-radius: 20px;
+    padding: 8px 100px;
+}
+
+.formulario h2{
+    font-size: 35px;
+    font-weight: 500px;
+    color: #212121;
+}

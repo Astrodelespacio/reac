@@ -1,0 +1,97 @@
+import React from "react";
+
+const Arrays = (props) =>{
+
+    // Elementos a mostrar con Arrays simples o planos
+    const Datos = [
+        	'Nombre',
+            'Apellido',
+            'Edad',
+            'Municipio',
+            'Departamento',
+    ];
+
+    const equipos = [
+        "Programación",
+        "Front-End",
+        "Data Science",
+        "Devopd",
+        "UX y Diseño",
+        "Innovación y Gestión"
+    ];
+
+    //Arrays de Objetos
+    // Un objeto es una colección de datos relacionados y/o funcionalidad
+
+    const info = [
+        {
+            nombre: "Nombre Completo: ",
+            edad: "Edad: ",
+            municipio: "Municipio: ",
+            departamento:"Departamento: ",   
+    }
+    ]
+
+    return(
+        <div>
+            <h2>Datos con Arrays simples o planos</h2>
+            <ul>
+                {
+                    Datos.map((dato, index) => (
+                        <li key={dato} > {dato} </li>
+                    ))
+                }
+
+            </ul>
+            <hr />
+            <h2>Datos con Arrays simples o planos tipo menu desplegable</h2>
+            <>
+            <label>Equipos</label>
+                    <select>
+                        {equipos.map((equipo, index) => {
+                                return <option key={index}>{equipo}</option> 
+                        })}
+                    </select>
+                    <hr />
+            </>
+            <h3>Objetos en un Array</h3>
+             {
+                info.map((elemento)=>(
+                    <>
+                        <label key={elemento} >{elemento.nombre}</label>
+                        <input type="text" />
+                        <br />
+                        <label key={elemento} >{elemento.edad}</label>
+                        <input type="text" />
+                        <br />
+                        <label key={elemento} >{elemento.municipio}</label>
+                        <input type="text" />
+                        <br />
+                        <label key={elemento} >{elemento.departamento}</label>
+                        <input type="text" />
+                        <br />
+                        <hr />
+                    </>
+                 ))
+                
+            }
+            <hr />
+            <h2>Arreglo aplicando props</h2>
+            <ul>
+               {
+                props.datos.map(elemento =>(
+                    <>
+                        <li key={elemento}>Nombre: {elemento.nombre}</li>
+                        <li key={elemento}>Apellido: {elemento.apellido}</li>
+                        <li key={elemento}>Edad: {elemento.edad}</li>
+                        <hr />
+                    </>
+                ))
+               }
+            </ul>
+
+        </div>
+    )
+}
+
+export default Arrays;

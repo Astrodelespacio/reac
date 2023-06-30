@@ -1,0 +1,29 @@
+const ListaOpciones =() => {
+
+// crear arreglos para trabajar con este ejemplo de lista
+    // Utilizamos el metodo map  con el nombre de -> arreglo.map( (equipo, index) =>{
+    //aqui agregamos los areglos
+    //})
+    // ".map" es un metodo para arreglos que deseemos crear en react
+    const equipos = [
+        "Programación",
+        "Front-End",
+        "Data Science",
+        "Devopd",
+        "UX y Diseño",
+        "Innovación y Gestión"
+    ]
+
+
+    return <div className="lista-opciones label">
+                <label>Equipos</label>
+                <select>
+                    {equipos.map((equipo, index) => {
+                            return <option key={index}>{equipo}</option> // "Key" es una propiedad unica que agregamos a ".map" porque react necesita un identificador unico, que ayudará a react a saber cuando es que tiene que hacer un cierto comportamiento // index es la posición dentro del arreglo
+                    })}
+                </select>
+
+    </div>
+}
+
+export default ListaOpciones
